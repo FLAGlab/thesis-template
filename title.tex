@@ -1,0 +1,127 @@
+% Copyright (c) 2019 FLAG lab
+
+% Minimal information to be in the cover page:
+% - Thesis title
+% - Authors full name
+% - Date of the defense (Month-yeat)
+% - The text "Thesis presented for the fulfillment of the degree of DEGREE in Engineering
+% - Name of the faculty
+% - Name and logo of the program and research lab
+
+\newcommand{\Author}{NAME LASTNAME}
+\newcommand{\MainTitle}{TITLE}
+\newcommand{\SecondaryTitle}{} % If needed
+\newcommand{\ShortSecondaryTitle}{SHORT TITLE} %If needed
+\newcommand{\PublicDefenceDate}{17 - 09 - 2019}
+
+%\ifthenelse{\boolean{print}}{}%
+%{\hypersetup{%
+%  pdftitle={\MainTitle},
+%  pdfauthor={\Author},
+%  pdfsubject={DEGREE Dissertation},
+%  pdfkeywords={%
+%    COMMA SEPARATED KEYWORDS},
+%  pdfcreator={LaTeX, KOMA-Script}}}
+  %pdfproducer={\Author}
+
+\extratitle{%
+  \ifxetex
+  \begin{center}
+    \mbox{}\vfill\Large
+    %\Author\\[1ex]
+    %\fbox{
+      \begin{minipage}{0.5\linewidth}
+        \font\orn="Hoefler Text Ornaments:color=ffdd00" at 64pt
+        \centerline{\orn ^^^^f074}
+      \end{minipage}
+    %}
+    \\[0.5cm]
+    \Huge \MainTitle\\[0.1cm]
+    \Large\textsc{\ShortSecondaryTitle}
+    \vfill
+  \end{center}
+  \else
+  \begin{center}
+    \mbox{}\\[5em]
+    \Huge \MainTitle\\
+    \LARGE \SecondaryTitle
+  \end{center}
+  \fi}
+
+\titlehead{%
+ \begin{minipage}{0.5\textwidth}
+ \centering
+   \begin{flushleft}
+  \includegraphics[height=1.5cm]{logo_misis}
+  \end{flushleft}
+  \end{minipage}
+ \begin{minipage}{0.5\textwidth}
+  \centering
+  \begin{flushright}
+  \includegraphics[height=1cm]{Flag-logo}
+\end{flushright}
+  \end{minipage}
+}
+
+\subject{Dissertation}
+\title{\MainTitle\\[.5ex]\Large\SecondaryTitle}
+\author{\Author}
+\date{\vskip 0.4em\normalsize\printdate{\PublicDefenceDate}}
+
+\publishers{%
+  \normalsize
+  \parbox{.7\linewidth}{\centering\textsl{This thesis submitted in partial fulfillment of the requirements \\
+    for a degree of DEGREE \\
+}}
+  \vfill
+  \begin{tabularx}{1.01\linewidth}{Xr}
+    \textbf{Thesis Committee:} & \\[1ex]
+    Prof. Name \textsc{Last name} (Promotor) & 
+     Universidad de los Andes, Colombia\\
+    Prof. Reviewer 1 \textsc{Reviewer 1} & 
+     Institution, Country\\
+    Prof. Reviewer 2 \textsc{Reviewer 2} & 
+     Institution, Country\\
+  \end{tabularx}}
+
+\uppertitleback{%
+  {\relsize{2} \MainTitle}\\[2pt]
+  {\relsize{1} \SecondaryTitle}
+
+  \vspace{1em}%
+  {\textcopyright} YEAR \Author\\[1ex]
+  Systems and Computing Engineering Department\\
+  Faculty of Engineering\\
+  Universidad de los Andes\\
+  Bogot\'a, Colombia
+ 
+  \vspace{1em}%
+  %FUNDING INFORMATION FOR PHD THESES
+
+  \vspace{1em}%
+  This manuscript has been set with the help of {\TeX \textsc{Shop}} and
+  \ifxetex\XeTeX\else\textsc{PDF}\LaTeX\fi\ (with
+  {\textsc{Bib}\TeX} support).  Bugs have been
+  tracked down in the text and squashed thanks to \textit{Bugs in
+    Writing} by \citet{dupre98bugs} and \textit{Elements of Style}
+  by \citet{strunk+00style}.}
+
+\lowertitleback{%
+  \footnotesize%
+  }
+  
+\begin{flushright}
+  \dedication{DEDICATION}
+\end{flushright}
+
+\maketitle
+
+\endinput
+
+Emacs/AucTeX stuff
+------------------
+Local Variables:
+mode:latex
+TeX-master:"main"
+End:
+------------------

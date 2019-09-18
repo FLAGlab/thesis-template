@@ -1,0 +1,101 @@
+                  RELEASeD Bibliographic Repository
+
+This directory contains BibTeX files for different domains, the most
+important of which is of course computer science (compsci.bib).
+
+Further subdividing compsci.bib is worthless.  There will always be
+references that belong to two or three different domains at the same
+time, for example AOP, OOP, language engineering and software
+engineering.  So we have just one big file with everything.
+
+Note that you are not forced to use one BibTeX database at a time.
+For instance, you can have a local.bib file with your own very
+specific entries, and include both your local database and some of the
+laboratory-wide ones:
+
+    \bibliography{local,bib/general,bib/compsci}
+
+This example supposes that you checked out the bibliographic
+repository into a directory called 'bib'.
+
+
+Repository etiquette
+====================
+
+Much as Java, Smalltalk or any other kind of code, the BibTeX files
+follow certain formatting conventions.
+
+  vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+> Please respect the formatting conventions of BibTeX files <
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+These conventions are described in the STYLE file.  Take the time to
+edit the entries you add by hand so that they follow the same
+formatting as existing ones.  If you are short of time, simply defer
+your contribution to a point in which you will be able to properly
+format your entries, for instance by placing it in your local.bib
+database.
+
+
+Aide-mémoire of BibTeX entry types
+==================================
+
+article: An article from a journal or magazine. Required fields:
+author, title, journal, year. Optional fields: volume, number, pages,
+month, note, key.
+
+book: A book with an explicit publisher. Required fields: author or
+editor, title, publisher, year. Optional fields: volume, series,
+address, edition, month, note, key.
+
+booklet: A work that is printed and bound, but without a named
+publisher or sponsoring institution. Required fields: title. Optional
+fields: author, howpublished, address, month, year, note, key.
+
+collection: A collection of works. Same as proceedings.
+
+conference: The same as inproceedings.
+
+inbook: A part of a book, which may be a chapter and/or a range of
+pages. Required fields: author or editor, title, chapter and/or pages,
+publisher, year. Optional fields: volume, series, address, edition,
+month, note, key.
+
+incollection: A part of a book with its own title. Required fields:
+author, title, booktitle, publisher, year. Optional fields: editor,
+pages, organization, publisher, address, month, note, key.
+
+inproceedings: An article in a conference proceedings. Required
+fields: author, title, booktitle, year. Optional fields: editor,
+pages, organization, publisher, address, month, note, key.
+
+manual: Technical documentation. Required fields: title. Optional
+fields: author, organization, address, edition, month, year, note.
+
+mastersthesis: A Master's thesis. Required fields: author, title,
+school, year. Optional fields: address, month, note, key.
+
+misc: Use this type when nothing else fits. Required fields:
+none. Optional fields: author, title, howpublished, month, year, note,
+key.
+
+patent: A patent.
+
+phdthesis: A Ph.D. thesis. Required fields: author, title, school,
+year. Optional fields: address, month, note, key.
+
+proceedings: The proceedings of a conference. Required fields: title,
+year. Optional fields: editor, publisher, organization, address,
+month, note, key.
+
+techreport: A report published by a school or other institution,
+usually numbered within a series. Required fields: author, title,
+institution, year. Optional fields: type, number, address, month,
+note, key.
+
+unpublished: A document with an author and title, but not formally
+published. Required fields: author, title, note. Optional fields:
+month, year, key.
+
+--------------------------------------------------
+$Id: README 3310 2012-10-26 06:58:24Z s.gonzalez $

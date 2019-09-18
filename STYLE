@@ -1,0 +1,94 @@
+                    BibTeX Formatting Conventions
+
+The ACM Digital Library follows many of the following conventions.
+Hence, most of the time you can simply copy-paste the entries from
+their website, retouching them slightly.
+
+- For the key, use the first author family name, a plus sign if there
+  is more than one, the two digits of the year, and then the most
+  important keyword, acronym or abbreviation of the paper.  Examples:
+
+  foote+05multimethods
+  weiser91ubicomp
+  kay93history
+
+  This helps knowing the paper to which the key refers, without
+  looking it up in the database.
+
+- Use {braces} instead of "double quotes" to enclose data.
+
+- You don't need to enclose numbers in braces.  For example, instead of
+
+  volume ={3586},
+
+  write instead
+
+  volume = 3586,
+
+- Use as many of the definitions in general.bib as possible.  For
+  instance, don't write
+
+    series = {Lecture Notes in Computer Science},
+
+  but write instead
+
+    series = series-lncs,
+
+  You can add new entries to general.bib for any item that will be
+  used more than once.
+
+  Similarly, prefer BibTeX's predefined month shortcuts. Rather than
+
+  month = {September}
+
+  write instead
+
+  month = sep
+
+- Use lowercase for entry types and keys.  For example, avoid
+
+  @InProceedings{fjn05multi,
+
+  or
+
+  @INPROCEEDINGS{fjn05multi,
+
+  write instead
+
+  @inproceedings{fjn05multi,
+
+  The same holds for keys.  Avoid
+
+  Year = 2005,
+
+  or
+
+  YEAR = 2005,
+
+  and write instead
+
+  year = 2005,
+
+- Separate page ranges with an en dash, instead of a single dash, as in
+
+  pages = {693--696},
+
+- If available, encode the DOI of your entries, since they can be
+  hyperlinked with hyperref.  Use the following format:
+
+  doi = {10.1145/960112.28718},
+
+- If available, encode the ISSN or ISBN of your entries.  They are
+  used by the natbib package.
+
+- Encode full author names rather than initials. Instead of
+
+  author = {B. Foote and R. Johnson and J. Noble}
+
+  rather encode
+
+  author = {Brian Foote and Ralph E. Johnson and James Noble}.
+
+
+-------------------------------------------------
+$Id: STYLE 3236 2012-10-24 13:44:26Z s.gonzalez $
