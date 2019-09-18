@@ -1,0 +1,37 @@
+% Copyright (c) 2019 FLAG lab
+
+\documentclass[american, print]{misis}
+
+\everymath{\displaystyle}
+
+\begin{document}
+
+\frontmatter
+
+\include{title}
+\include{abstract}
+\include{acknowledgements}
+\tableofcontents
+\listoffigures
+
+\mainmatter
+\input{chapter-titlepage}
+\include{introduction}
+%\include{CHAPTER_FILE_NAME}
+
+
+%Adding appendices if needed
+\appendix
+\include{appendix-a}
+
+\backmatter
+\bibliography{bib/local,bib/writing}
+
+\printindex
+\addcontentsline{toc}{chapter}{List of Terms}
+\printindex[symbols]
+\include{acronym}
+\end{document}
+
+\endinput
+
