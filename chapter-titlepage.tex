@@ -1,0 +1,15 @@
+%% Macros to make the title page aligned at the bottom and with a big number 
+%% for the chapter number
+
+\DeclareRobustCommand{\spacedallcaps}[1]{\textls[160]{\MakeTextUppercase{#1}}}%
+\DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textls[80]{\scshape\MakeTextLowercase{#1}}}%
+%\newfont{\chapterNumber}{eurb10 scaled 7000}
+\newfont{\chapterNumber}{pplr9d scaled 7000}
+%\MakeUppercase{pplr9d scaled 7000}
+\titleformat{\chapter}[display]%             
+        {\relax}{\raggedleft{\color{halfgray}
+        \textsc{\chaptername} \chapterNumber\thechapter} \\ }{0pt}%
+        {%\titlerule\vspace*{.9\baselineskip}
+\raggedright%\spacedallcaps
+}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
+
