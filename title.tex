@@ -12,41 +12,8 @@
 \newcommand{\MainTitle}{TITLE}
 \newcommand{\SecondaryTitle}{} % If needed
 \newcommand{\ShortSecondaryTitle}{SHORT TITLE} %If needed
-\newcommand{\PublicDefenceDate}{17 - 09 - 2019}
+\newcommand{\PublicDefenceDate}{\today}
 
-%\ifthenelse{\boolean{print}}{}%
-%{\hypersetup{%
-%  pdftitle={\MainTitle},
-%  pdfauthor={\Author},
-%  pdfsubject={DEGREE Dissertation},
-%  pdfkeywords={%
-%    COMMA SEPARATED KEYWORDS},
-%  pdfcreator={LaTeX, KOMA-Script}}}
-  %pdfproducer={\Author}
-
-%\extratitle{%
-%  \ifxetex
-%  \begin{center}
-%    \mbox{}\vfill\Large
-%    %\Author\\[1ex]
-%    %\fbox{
-%      \begin{minipage}{0.5\linewidth}
-%        \font\orn="Hoefler Text Ornaments:color=ffdd00" at 64pt
-%        \centerline{\orn ^^^^f074}
-%      \end{minipage}
-%    %}
-%    \\[0.5cm]
-%    \Huge \MainTitle\\[0.1cm]
-%    \Large\textsc{\ShortSecondaryTitle}
-%    \vfill
-%  \end{center}
-%  \else
-%  \begin{center}
-%    \mbox{}\\[5em]
-%    \Huge \MainTitle\\
-%    \LARGE \SecondaryTitle
-%  \end{center}
-%  \fi}
 
 \titlehead{%
  \begin{minipage}{0.5\textwidth}
@@ -66,7 +33,7 @@
 \subject{Dissertation}
 \title{\MainTitle\\[.5ex]\Large\SecondaryTitle}
 \author{\Author}
-\date{\vskip 0.4em\normalsize\printdate{\PublicDefenceDate}}
+\date{\vskip 0.4em\normalsize{\PublicDefenceDate}}
 
 \publishers{%
   \normalsize

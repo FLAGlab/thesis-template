@@ -36,7 +36,6 @@
 \RequirePackage{amsmath}
 \RequirePackage{cases}   
 \RequirePackage{multirow}
-\RequirePackage{booktabs}  
 \RequirePackage{paralist}
 \RequirePackage{beramono} %listings font
 \RequirePackage{textcomp}   
@@ -128,6 +127,7 @@
 \RequirePackage{tabularx}
 \RequirePackage{tabu,longtable}
 \RequirePackage{tablefootnote}
+\RequirePackage{booktabs}
 
 \RequirePackage[table,usenames,dvipsnames, svgnames]{xcolor}
 \RequirePackage{footnote}
@@ -347,7 +347,7 @@
 \newcommand{\header}[1]{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \pagestyle{myheadings}
-    {\noindent\huge\bfseries #1}
+    {\noindent\huge\bfseriesseries #1}
     \singlespace
     \vspace{3\baselineskip}}
 
@@ -364,37 +364,64 @@
 %    ****************************************
 \RequirePackage{listings}
 
-%\lstset{%
-%  language=BASE_LANGUAGE
-%  basicstyle=\scriptsize\ttfamily,
-%  aboveskip=.5\baselineskip,
-%  belowskip=.5\baselineskip,
-%  commentstyle=\scriptsize\ttfamily\itshape,
-%  breaklines,
-%  numberstyle=\tiny\color{gray}, 
-%  numbersep=0pt}
-%\lstdefinestyle{floating}{%
-%  frame=lines,
-%  float=htb,
-%  captionpos=b,
-%  aboveskip=0pt,
-%  belowskip=0pt,
-%  escapeinside={\%*}{*)}
-%  }
-%
-%% Subjective-C listings
-%\lstdefinestyle{YOUR_LANG}
-% {belowskip=0\baselineskip,
-%  basicstyle= \scriptsize\ttfamily,
-%  showstringspaces=false,
-%  commentstyle=\scriptsize\ttfamily\itshape,
-%  keywordstyle=\tt\bf,
-%  tabsize=3,
-%  morekeywords={}
-%}
-%    
-%\lstnewenvironment{YOUR_LANG}[1][]
-% {\lstset{style=YOUR_LANG,#1}}{}  
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+\lstdefinestyle{floating}
+ {frame=none,
+  float=htbp,
+  captionpos=b,
+  aboveskip=-0.5pt,
+  belowskip=-1pt,
+  abovecaptionskip=-1pt}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+  
+%Scala definition
+\lstdefinestyle{scala}
+ {language=Java,
+  showstringspaces=false,
+  keywordstyle=\ttfamily\bfseries,
+  stringstyle=\color{blue}\ttfamily,
+  commentstyle=\color{gray}\ttfamily,
+  tabsize=3,  
+  style=floating,
+  backgroundcolor=\color{background},
+  breaklines=true,
+  belowskip=-0.5 \baselineskip,
+  aboveskip=-0\baselineskip,
+  morekeywords={val, var}
+}
+
+%Python environment    
+\lstnewenvironment{oscar}[1][]
+ {\lstset{style=scala,#1}}{}  
+
+\lstnewenvironment{code}[1][]
+{\lstset{numbers=left,escapechar=`,caption=b,basicstyle=\small\ttfamily,#1}}{}
+
+\newcommand{\scode}[1]{\textrm{\texttt{#1}}}
+\def\sdcode{\lstinline[style=scala]}
+ 
 
 %    ****************************************
 %    *                   PACKAGES               *
@@ -408,13 +435,14 @@
 \RequirePackage{bibentry}
 \AtBeginDocument{\nobibliography*} % enable \bibentry{} commands
 
-\RequirePackage{scrpage2}
-\clearscrheadfoot
-\ohead{\pagemark}
-\ihead{\headmark}
-\setheadsepline{.4pt}
-\renewcommand*{\chaptermarkformat}{} % remove chapter number
-\pagestyle{scrheadings}
+%\RequirePackage{scrlfile}
+%\ReplacePackage{scrpage2}{scrlayer-scrpage}
+%\clearscrheadfoot
+%\ohead{\pagemark}
+%\ihead{\headmark}
+%\setheadsepline{.4pt}
+%\renewcommand*{\chaptermarkformat}{} % remove chapter number
+%\pagestyle{scrheadings}
 %\setkomafont{pagehead}{\normalfont\sffamily}
 
 \RequirePackage{imakeidx}
@@ -486,6 +514,10 @@
 \newcommand{\literal}[1]{``#1''}
 
 \RequirePackage{titlesec}
+\RedeclareSectionCommands{section}
+\RedeclareSectionCommands{subsection}
+\RedeclareSectionCommands{subsubsection}
+\RedeclareSectionCommands{paragraph}
 %\microtypesetup{expansion=false}%
 
 
@@ -604,7 +636,11 @@
   \Frefexname\fancyrefdefaultspacing#1#3}
 
 %------------------------------------------------------------------------------
-
+%Latins
+\newcommand{\eg}{\emph{e.g.,}\xspace}
+\newcommand{\ie}{\emph{i.e.,}\xspace}
+\newcommand{\cf}{\emph{cf.}\xspace}
+\newcommand{\uniandes}{Universidad de los Andes\xspace}
 
 
 \pagenumbering{arabic}  
