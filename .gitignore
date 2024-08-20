@@ -10,3 +10,4 @@
 /main.ilg
 /main.lof
 *.gz
+*.synctex(busy)

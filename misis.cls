@@ -56,8 +56,8 @@
   \PassOptionsToClass{\CurrentOption}{scrbook}}
 \ExecuteOptions{}
 \ProcessOptions\relax
-\LoadClass[10pt,bibliography=totoc,version=first,index=totoc,cleardoublepage=empty]{scrbook}
-
+\LoadClass[10pt,bibliography=totoc,version=first,index=totoc,openany]{scrbook}
+%twoside=false
 %   ***********************************
 %   *       PACKAGE READING           *
 %   ***********************************
@@ -86,6 +86,12 @@
   \RequirePackage[T1]{fontenc}
   \RequirePackage{lmodern}
 \fi
+
+%\usepackage{xpatch}
+%\makeatletter
+%\xpatchcmd{\maketitle}{\if@twoside\next@tpage}{\iffalse}{}{}
+%\makeatother
+
 %   ***********************************
 %   *           MAIN CODE             *
 %   ***********************************
@@ -248,12 +254,12 @@
         \@mkboth{\uppercase{\contentsname}}{\uppercase{\contentsname}}}%
   {\singlespace\@starttoc{toc}}\if@restonecol\twocolumn\fi}
 
-\def\l@chapter{\@dottedtocline{1}{1.5em}{2.3em}}
-\def\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
-\def\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
-\def\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
-\def\l@paragraph{\@dottedtocline{4}{10em}{5em}}
-\def\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
+\def\l@chapter{\@dottedtocline{1}{0.7em}{1.5em}}
+\def\l@section{\@dottedtocline{2}{2.5em}{4em}}
+\def\l@subsection{\@dottedtocline{3}{4em}{5.5em}}
+\def\l@subsubsection{\@dottedtocline{4}{5.5em}{7em}}
+\def\l@paragraph{\@dottedtocline{5}{7em}{8.5em}}
+%\def\l@subparagraph{\@dottedtocline{6}{12em}{6em}}
 
 % ---Command to generate table of figures ----------------------------------
 
@@ -267,7 +273,7 @@
    \clearpage
    }
 
-\def\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
+\def\l@figure{\@dottedtocline{1}{1.5em}{2em}}
 
 % ---Command to generate listing of tables----------------------------------
 
@@ -412,7 +418,7 @@
   morekeywords={val, var}
 }
 
-%Python environment    
+%Oscar environment    
 \lstnewenvironment{oscar}[1][]
  {\lstset{style=scala,#1}}{}  
 
