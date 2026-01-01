@@ -11,3 +11,4 @@
 /main.lof
 *.gz
 *.synctex(busy)
+*.out

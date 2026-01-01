@@ -4,17 +4,20 @@ This repository holds the basic definition and structure to write the bachelor/m
 
 ## Thesis Structure
 
+To display a print version of the document (mainly for Ph.D. theses) use the print option in the documentclass
+
 The document should be structured by means of its chapters.
 
 The main file of the document is `main.tex`. This file contains the basic definition of the formatting, and document structure. New chapters should be included in this file by means of the `\include{CHAPTER_NAME}` command.
 
 All bibliography entries should be added in the `bib/local.bib` file, or added to a new file in the `bib` directory.
 
-Figures should be added as vectorized figures (i.e., pdf, svg) to the `figures` folder.
-
-Tables should be added as independent `.tex` files per table to the `tables` folder
+- Chapters should be added as independent `.tex` files per chapter to the `content` folder (further division modularization is possible per section if required)
+- Figures should be added as vectorized figures (i.e., pdf, svg) to the `figures` folder.
+- Tables should be added as independent `.tex` files per table to the `tables` folder
 
 ## Useful Commands
+
 The `thesis.cls` file contains the definition for all commands that can be used within the document's text. In case new packages are required or you need to (re)define commands, the should be added in this file.
 
 - References to floating objects (figures, tables, listings, sections, etc) are managed with the fancy-ref package. This package avoids the use of the explicit name and numbering of the object.
@@ -33,13 +36,16 @@ The `thesis.cls` file contains the definition for all commands that can be used 
 - latin shorthands for that is (i.e.,) and for example (e.g.,) are used with the commands `\ie` and `\eg` respectively
 
 ## Other Useful Tools
+
 - Enumerations, items, and descriptions  are defined in the `enumitem` package. In particular inline enumerations are used as follows.
-```
+
+```latex
 \begin{enumerate*}[label=(\arabic*)]
 \item My first inline item
 \item My second inline item
 \end{enumerate*}
 ```
+
 Note the use of the label definition in the `enumerate*` environment. Inline lists should **always** use the format `(1)` as this is the clear style to enumerate them in scientific writing.
 
 - Bibliography references are defined using bibtex and referenced using the IEEE reference format as defined in the `natbib` package
@@ -47,11 +53,15 @@ Note the use of the label definition in the `enumerate*` environment. Inline lis
   - The `\citet{REF}` command generates the author-numeric reference `Lastname, Firstname et al. [1]`
 
 ### Source code definition
-Source code is defined using the `listings` package
+
+Source code is defined using the `listings` package. A language specific environment is defined per programming language as part of the `misis.cls` file (see the file for an example)
 
 ## Document Tools
+
 - The list of terms at the end of the document is auto-generated using the list of terms definition. Terms to appear in the list should be used in the text with the command `\term{TERM}`
 - definitions
-- symbols
+- The list of symbols is generated taking all the symbols defined with the command ``
 
 # Writing tips
+
+Check the resources for writing at: [Writing tips](https://flaglab.github.io/thesis.html), and check the books [Bugs in Writing: A Guide to Debugging Your Prose](https://uniandes.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma991004924969707681&context=L&vid=57U_UDLA:UDLA&lang=es&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine&tab=Todo&query=any,contains,Bugs%20in%20Writing:%20A%20Guide%20to%20Debugging%20Your%20Prose) and [Elements of Style](https://uniandes.primo.exlibrisgroup.com/permalink/57U_UDLA/1sib6to/alma991005684361107681)

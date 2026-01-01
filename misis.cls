@@ -39,6 +39,8 @@
 \RequirePackage{paralist}
 \RequirePackage{beramono} %listings font
 \RequirePackage{textcomp}   
+\RequirePackage{lipsum}
+
 
 \newboolean{print}
 \setboolean{print}{false}
@@ -56,8 +58,8 @@
   \PassOptionsToClass{\CurrentOption}{scrbook}}
 \ExecuteOptions{}
 \ProcessOptions\relax
-\LoadClass[10pt,bibliography=totoc,version=first,index=totoc,openany]{scrbook}
-%twoside=false
+\LoadClass[10pt,bibliography=totoc,version=first,index=totoc,cleardoublepage=empty]{scrbook}
+
 %   ***********************************
 %   *       PACKAGE READING           *
 %   ***********************************
@@ -86,12 +88,6 @@
   \RequirePackage[T1]{fontenc}
   \RequirePackage{lmodern}
 \fi
-
-%\usepackage{xpatch}
-%\makeatletter
-%\xpatchcmd{\maketitle}{\if@twoside\next@tpage}{\iffalse}{}{}
-%\makeatother
-
 %   ***********************************
 %   *           MAIN CODE             *
 %   ***********************************
@@ -145,11 +141,14 @@
 
 \ifthenelse{\boolean{print}}%
 {% print version
+  \geometry{papersize={160mm,240mm}, vmargin={2mm,4mm}, hmargin={2mm,4mm},
+  includehead, includemp, reversemp, marginparwidth=2em}
   \providecommand{\href}[2]{#2}
   \providecommand{\nolinkurl}[1]{\url{#1}}
   \providecommand{\doi}[1]{DOI \formatdoi{#1}}}
 {% screen version
-  \RequirePackage[pdfstartview=fitV, colorlinks=false, citecolor=red]{hyperref}
+\geometry{includehead, includemp, reversemp, marginparwidth=2em}
+  \RequirePackage[pdfstartview=fitV, colorlinks=true, citecolor=red]{hyperref}
   %\RequirePackage[open, openlevel=2, atend]{bookmark}[2008/08/08]
   % make a DOI reference that works with hyperref
   \providecommand{\doi}[1]{DOI
@@ -247,19 +246,19 @@
 
 
 % ---Command to generate content table----------------------------------
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \def\tableofcontents{\@restonecolfalse
   \if@twocolumn\@restonecoltrue\onecolumn\fi
   \chapter*{\contentsname
         \@mkboth{\uppercase{\contentsname}}{\uppercase{\contentsname}}}%
   {\singlespace\@starttoc{toc}}\if@restonecol\twocolumn\fi}
 
-\def\l@chapter{\@dottedtocline{1}{0.7em}{1.5em}}
-\def\l@section{\@dottedtocline{2}{2.5em}{4em}}
-\def\l@subsection{\@dottedtocline{3}{4em}{5.5em}}
-\def\l@subsubsection{\@dottedtocline{4}{5.5em}{7em}}
-\def\l@paragraph{\@dottedtocline{5}{7em}{8.5em}}
-%\def\l@subparagraph{\@dottedtocline{6}{12em}{6em}}
+\def\l@chapter{\@dottedtocline{1}{0.5em}{2.2em}}
+\def\l@section{\@dottedtocline{2}{2.3em}{3em}}
+\def\l@subsection{\@dottedtocline{3}{3.8em}{3.2em}}
+\def\l@subsubsection{\@dottedtocline{4}{7.0em}{4.1em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{12em}{6em}}
 
 % ---Command to generate table of figures ----------------------------------
 
@@ -273,7 +272,7 @@
    \clearpage
    }
 
-\def\l@figure{\@dottedtocline{1}{1.5em}{2em}}
+\def\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
 
 % ---Command to generate listing of tables----------------------------------
 
@@ -418,7 +417,7 @@
   morekeywords={val, var}
 }
 
-%Oscar environment    
+%Python environment    
 \lstnewenvironment{oscar}[1][]
  {\lstset{style=scala,#1}}{}  
 
