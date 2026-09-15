@@ -1,13 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%
-%% The file `misis.cls', created on <September 2019> by
+%% The file `flag.cls', created on <September 2019> by
 %% Nicolás Cardozo  (n.cardozo@uniande.edu.co) at Universidad de los Andes
 %%
-%% This class is used to create thesis documents for the MISIS program at Universidad de los Andes
+%% This class is used to create thesis documents for the CS students at Universidad de los Andes
 
 
-%% La portada de la tesis y añade una página de derechos, en el caso que no se deseen ceder los derechos.
+%% La portada de la tesis añade una página de derechos, en el caso que no se deseen ceder los derechos.
 %% Ademas incluye una version distinta de pagina de resumen y de notación. 
 
 
@@ -148,11 +148,19 @@
   \providecommand{\doi}[1]{DOI \formatdoi{#1}}}
 {% screen version
 \geometry{includehead, includemp, reversemp, marginparwidth=2em}
-  \RequirePackage[pdfstartview=fitV, colorlinks=true, citecolor=red]{hyperref}
+  \RequirePackage[pdfstartview=fitV]{hyperref}
   %\RequirePackage[open, openlevel=2, atend]{bookmark}[2008/08/08]
   % make a DOI reference that works with hyperref
   \providecommand{\doi}[1]{DOI
     \href{http://dx.doi.org/#1}{\formatdoi{#1}}}}
+
+\hypersetup{
+    colorlinks=true,      % False: boxed links; True: colored links
+    linkcolor=magenta,       % Color of internal links (sections, pages, \ref, \fref)
+    citecolor=cyan,      % Color of citations (\cite)
+    urlcolor=blue,     % Color of web links (\url, \href)
+%    allcolors=blue        % Optional: sets all link types to a single color
+}
 
 \RequirePackage[numbers]{natbib}
 \AtBeginDocument{
